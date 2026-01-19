@@ -214,10 +214,10 @@ Aquisition->Acquisition
 Aquisitions->Acquisitions
 aquisition->acquisition
 aquisitions->acquisitions
-Addresse->Address
-Addresses->Addresses
-addresse->address
-addresses->addresses
+Addresse->Adresse
+Addresses->Adresses
+addresse->adresse
+addresses->adresses
 Adiction->Addiction
 Adictions->Addictions
 adiction->addiction
@@ -1938,8 +1938,8 @@ hero->héros
 heros->héros
 L'héros->Le héros
 l'héros->le héros
-Huit close->Huis close
-huit close->huis close
+Huit clos->Huis clos
+huit clos->huis clos
 incluera->inclura
 inégibilité->inéligibilité
 Inconiement->Inconsciemment
@@ -2561,10 +2561,10 @@ Procés-Verbal->Procès-verbal
 Procés-Verbaux->Procès-verbaux
 Procés-verbal->Procès-verbal
 Procés-verbaux->Procès-verbaux
-Process Verbal->Procès-verbal
-Process Verbaux->Procès-verbaux
-Process verbal->Procès-verbal
-Process verbaux->Procès-verbaux
+Proces Verbal->Procès-verbal
+Proces Verbaux->Procès-verbaux
+Proces verbal->Procès-verbal
+Proces verbaux->Procès-verbaux
 Proces-Verbal->Procès-verbal
 Proces-Verbaux->Procès-verbaux
 Proces-verbal->Procès-verbal
@@ -2593,10 +2593,10 @@ procés-Verbal->procès-verbal
 procés-Verbaux->procès-verbaux
 procés-verbal->procès-verbal
 procés-verbaux->procès-verbaux
-process Verbal->procès-verbal
-process Verbaux->procès-verbaux
-process verbal->procès-verbal
-process verbaux->procès-verbaux
+proces Verbal->procès-verbal
+proces Verbaux->procès-verbaux
+proces verbal->procès-verbal
+proces verbaux->procès-verbaux
 proces-Verbal->procès-verbal
 proces-Verbaux->procès-verbaux
 proces-verbal->procès-verbal
@@ -2698,12 +2698,12 @@ Receuilir->Recueillir
 Receuillir->Recueillir
 receuilir->recueillir
 receuillir->recueillir
-Recomandations->Recommendations
-Recomendations->Recommendations
-Recommendations->Recommendations
-recomandations->recommendations
-recomendations->recommendations
-recommendations->recommendations
+Recomandations->Recommandations
+Recomendations->Recommandations
+Recommendations->Recommandations
+recomandations->recommandations
+recomendations->recommandations
+recommendations->recommandations
 Récompences->Récompenses
 récompences->récompenses
 Recompenses->Récompenses
@@ -5707,9 +5707,9 @@ toponomie->toponymie
 toponomies->toponymies
 tout [aà] coup->tout à coup
 tout [aà] fait->tout à fait
-Traffic->Traffic
+Traffic->Trafic
 Traffics->Trafics
-traffic->traffic
+traffic->trafic
 traffics->trafics
 Tranquilité->Tranquillité
 Tranquilitée->Tranquillité
