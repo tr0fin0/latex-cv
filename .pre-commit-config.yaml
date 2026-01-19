@@ -17,10 +17,7 @@ repos:
   - id: codespell
     name: Spell Check for en-US
     args: ["--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
-    exclude: [
-      '^(docs/translation/fr-FR/|docs/translation/pt-BR/).*',
-      'package-lock.json'
-    ]
+    exclude: '^(docs/translation/fr-FR/|docs/translation/pt-BR/).*|package-lock.json'
 
   - id: codespell
     name: Spell Check for fr-FR
