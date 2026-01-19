@@ -14,7 +14,7 @@ a a->a
 à ela->a ela
 à elas->a elas
 à ele->a ele
-à eles->a eles
+à else->a else
 à essa->a essa
 à esse->a esse
 à esta->a esta
@@ -22,7 +22,7 @@ a a->a
 à fazer->a fazer
 à fim->a fim
 à fundo->a fundo
-à meu->a meu
+à menu->a menu
 à mim->a mim
 a muito tempo->há muito tempo
 à muito tempo->há muito tempo
@@ -87,7 +87,7 @@ adimitiu->admitiu
 adiquirir->adquirir
 adiquiriu->adquiriu
 admnistração->administração
-admnistrar->administrar
+admnistrar->administrator
 adolescencia->adolescência
 Aeronautica->Aeronáutica
 Aeronautico->Aeronáutico
@@ -174,7 +174,7 @@ anti aéreo->antiaéreo
 anti depressivo->antidepressivo
 anti-vírus->antivírus
 anuncio->anúncio
-ao meu ver->a meu ver
+ao menu ver->a menu ver
 apareçe->aparece
 apareçem->aparecem
 apareçeu->apareceu
@@ -210,10 +210,10 @@ Asia->Ásia
 asiatica->asiática
 asim->assim
 assasinado->assassinado
-assasinato->assassinato
+assasinato->assassination
 assasinatos->assassinatos
 assasino->assassino
-Assasinos->Assassinos
+Assasinos->Assassins
 Assembléia->Assembleia
 Assembléias->Assembleias
 assistencia->assistência
@@ -1085,7 +1085,7 @@ juridição->jurisdição
 juridicas->jurídicas
 juridico->jurídico
 juridicos->jurídicos
-juz->jus
+juz->just
 kilo->quilograma
 kilômetro->quilômetro
 kilometro->quilômetro
@@ -1198,7 +1198,7 @@ misticos->místicos
 miticas->míticas
 mls->mL
 molaridade->concentração em quantidade de matéria
-mór->mor
+mór->more
 muinto->muito
 muintos->muitos
 multimedia->multimídia
@@ -1595,7 +1595,7 @@ sacerdocio->sacerdócio
 sacrificio->sacrifício
 saida->saída
 saidas->saídas
-saiem->saem
+saiem->same
 saira->saíra, sairá
 sairam->saíram
 Santuario->Santuário
