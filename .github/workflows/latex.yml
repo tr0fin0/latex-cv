@@ -20,10 +20,11 @@ jobs:
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@25080975331dc4fc8e6f1af55788e00f84f51fff #v4.0.0
         with:
-          root_file: cv.tex
+          root_file: 'main.tex'
+          working_directory: 'src/'
 
       - name: Upload PDF
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f #v6.0.0
         with:
           name: PDF
-          path: cv.pdf
+          path: 'main.pdf'
