@@ -16,18 +16,18 @@ repos:
   hooks:
   - id: codespell
     name: Spell Check for en-US
-    args: ["--ignore-words", "translation/en-US/vocabulary/accept.txt", "-w"]
-    exclude: '^(translation/fr-FR/|translation/pt-BR/).*'
+    args: ["--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
+    exclude: '^(docs/translation/fr-FR/|docs/translation/pt-BR/).*'
 
   - id: codespell
     name: Spell Check for fr-FR
-    files: '^translation/fr-FR/.*'
-    args: ["-D", "translation/fr-FR/vocabulary/dictionary.txt", "--ignore-words", "translation/en-US/vocabulary/accept.txt", "-w"]
+    files: '^docs/translation/fr-FR/.*'
+    args: ["-D", "docs/translation/fr-FR/vocabulary/dictionary.txt", "--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
 
   - id: codespell
     name: Spell Check for pt-BR
-    files: '^translation/pt-BR/.*'
-    args: ["-D", "translation/pt-BR/vocabulary/dictionary.txt", "--ignore-words", "translation/en-US/vocabulary/accept.txt", "-w"]
+    files: '^docs/translation/pt-BR/.*'
+    args: ["-D", "docs/translation/pt-BR/vocabulary/dictionary.txt", "--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
 
 
 - repo: https://github.com/pre-commit/pre-commit-hooks
