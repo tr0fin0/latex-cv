@@ -19,11 +19,11 @@ repos:
     args: ["--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
     exclude: |
       (?x)^(
-          *.cjs|
-          *.json|
-          *.txt|
-          src/contents_fr-FR.tex|
-          src/contents_pt-BR.tex
+          .*\.cjs|
+          .*\.json|
+          .*\.txt|
+          src/contents_fr-FR\.tex|
+          src/contents_pt-BR\.tex
       )$
 
   - id: codespell
