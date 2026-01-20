@@ -93,21 +93,21 @@ module.exports = {
         assets: [
           {
             path: 'src/cv-english.pdf',
-            name: 'cv-enUS-${nextRelease.gitTag}',
+            name: 'cv-enUS-${nextRelease.gitTag}.pdf',
             label:
-              'Curriculum Vitae PDF file for en-US on ${nextRelease.gitTag}.'
+              'Curriculum Vitae PDF file on version ${nextRelease.gitTag} for en-US.'
           },
           {
             path: 'src/cv-french.pdf',
-            name: 'cv-frFR-${nextRelease.gitTag}',
+            name: 'cv-frFR-${nextRelease.gitTag}.pdf',
             label:
-              'Curriculum Vitae PDF file for fr-FR on ${nextRelease.gitTag}.'
+              'Curriculum Vitae PDF file on version ${nextRelease.gitTag} for fr-FR.'
           },
           {
             path: 'src/cv-portuguese.pdf',
-            name: 'cv-ptBR-${nextRelease.gitTag}',
+            name: 'cv-ptBR-${nextRelease.gitTag}.pdf',
             label:
-              'Curriculum Vitae PDF file for pt-BR on ${nextRelease.gitTag}.'
+              'Curriculum Vitae PDF file on version ${nextRelease.gitTag} for pt-BR.'
           }
         ],
         failComment: false,
