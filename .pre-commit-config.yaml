@@ -17,16 +17,16 @@ repos:
   - id: codespell
     name: Spell Check for en-US
     args: ["--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
-    exclude: 'package-lock.json'
+    exclude: '*.cjs|*.json|*.txt|src/contents_fr-FR.tex|src/contents_pt-BR.tex'
 
   - id: codespell
     name: Spell Check for fr-FR
-    files: 'src/contents.tex'
+    files: 'src/contents_fr-FR.tex'
     args: ["-D", "docs/translation/fr-FR/vocabulary/dictionary.txt", "--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
 
   - id: codespell
     name: Spell Check for pt-BR
-    files: 'src/contents.tex'
+    files: 'src/contents_pt-BR.tex'
     args: ["-D", "docs/translation/pt-BR/vocabulary/dictionary.txt", "--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
 
 
