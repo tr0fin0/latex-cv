@@ -29,13 +29,13 @@ jobs:
           root_file: 'main.tex'
           working_directory: 'src/'
           post_compile: |
-            mv main.pdf main-${{matrix.language}}.pdf
+            mv main.pdf cv-${{matrix.language}}.pdf
 
       - name: Upload ${{ matrix.language }} CV as PDF file
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f #v6.0.0
         with:
-          name: PDF-${{ matrix.language }}
-          path: 'src/main-${{matrix.language}}.pdf'
+          name: cv-${{ matrix.language }}
+          path: 'src/cv-${{matrix.language}}.pdf'
 
 
   releaser:
@@ -55,7 +55,7 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           path: src/
-          pattern: PDF-*
+          pattern: cv-*
           merge-multiple: true
 
       - name: Setup Node.js

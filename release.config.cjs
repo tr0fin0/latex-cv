@@ -92,20 +92,20 @@ module.exports = {
       {
         assets: [
           {
-            path: 'src/main-english.tex',
-            name: 'PDF-enUS-${nextRelease.gitTag}',
+            path: 'src/cv-english.pdf',
+            name: 'cv-enUS-${nextRelease.gitTag}',
             label:
               'Curriculum Vitae PDF file for en-US on ${nextRelease.gitTag}.'
           },
           {
-            path: 'src/main-french.tex',
-            name: 'PDF-frFR-${nextRelease.gitTag}',
+            path: 'src/cv-french.pdf',
+            name: 'cv-frFR-${nextRelease.gitTag}',
             label:
               'Curriculum Vitae PDF file for fr-FR on ${nextRelease.gitTag}.'
           },
           {
-            path: 'src/main-portuguese.tex',
-            name: 'PDF-ptBR-${nextRelease.gitTag}',
+            path: 'src/cv-portuguese.pdf',
+            name: 'cv-ptBR-${nextRelease.gitTag}',
             label:
               'Curriculum Vitae PDF file for pt-BR on ${nextRelease.gitTag}.'
           }
