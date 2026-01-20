@@ -1,0 +1,348 @@
+%% tpack.sty
+%% ---------------------------------------------
+%% Multilanguage Curriculum Vitae LaTeX package
+%%
+%% by Guilherme Nunes Trofino.
+%% ---------------------------------------------
+
+
+
+
+% ----------------------------------------------
+%               Presets
+% ----------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tpack}[2024/04/10 LaTeX CV Package]
+
+
+
+% ----------------------------------------------
+%               Packages: Required
+% ----------------------------------------------
+
+\usepackage[english, french, portuguese]{babel}
+\usepackage{contour}
+\usepackage{geometry}
+\usepackage{iflang}
+\usepackage[sfdefault]{inter}   % https://tug.org/FontCatalogue/sansseriffonts.html
+\usepackage{hyperref}
+\usepackage{paracol}            % parallel columns
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{translations}
+\usepackage[normalem]{ulem}
+
+
+
+
+
+
+% ----------------------------------------------
+%               Customization: Colors
+% ----------------------------------------------
+
+% https://htmlcolorcodes.com/fr/
+\definecolor{color_link}{rgb}{1.0, 0.75, 0.0}
+\definecolor{color_highlight}{HTML}{873600}
+\definecolor{color_text}{HTML}{505050}
+\definecolor{color_title}{HTML}{303030}
+
+
+
+% ----------------------------------------------
+%               Customization: Geometry
+% ----------------------------------------------
+
+\geometry{margin=10mm}
+
+\setlength{\columnsep}{10mm}
+
+\pagenumbering{gobble}
+
+
+
+% ----------------------------------------------
+%               Customization: Hyperlinks
+% ----------------------------------------------
+
+\contourlength{0.75pt}          % contour expansion length to mask underline
+
+\hypersetup{                    % require 'hyperref'
+    colorlinks=false,
+    urlbordercolor=color_link
+}
+
+
+
+% ----------------------------------------------
+%               Customization: Titles
+% ----------------------------------------------
+
+\titleformat
+    {\section}              % Part
+    [block]                 % Part Shape
+    {\color{color_highlight}\normalfont\bf\huge}  % Font Size
+    {\thesection. }         % Label Numbering
+    {0mm}                   % Part Separation
+    {}                      % Code Before
+    [{\color{color_highlight}\titlerule[0.75mm]}]   % Code After
+
+\titleformat
+    {\subsection}           % Part
+    [block]                 % Part Shape
+    {\normalfont\large}     % Font Size
+    {\thesection.\thesubsection } % Label Numbering
+    {0mm}                   % Part Separation
+    {}                      % Code Before
+    []                      % Code After
+
+\titlespacing*{\section}{0.0mm}{5.0mm}{2.5mm}
+\titlespacing*{\subsection}{0.0mm}{5.0mm}{0.0mm}
+
+
+
+
+
+
+% ----------------------------------------------
+%               Globals
+% ----------------------------------------------
+
+
+
+% ----------------------------------------------
+%               Environments
+% ----------------------------------------------
+
+\newenvironment{indented}{
+    \begin{list}{}{
+        \setlength{\leftmargin}{3mm}
+        \setlength{\parsep}{0mm}
+        \setlength{\parskip}{0mm}
+        \setlength{\itemsep}{0mm}
+        \setlength{\topsep}{0mm}
+    }}{\end{list}}
+
+
+
+% ----------------------------------------------
+%               Commands Refactoring
+% ----------------------------------------------
+
+\renewcommand{\maketitle}{
+    \noindent{\Huge\textbf{\color{color_title}\@author}}\hfill\version
+
+    \vspace{0.5mm}
+    \contactinfo
+}
+
+\renewcommand{\ULdepth}{1.8pt}  % require 'ulem'. distance from underline to text
+
+
+
+% ----------------------------------------------
+%               Commands without Arguments
+% ----------------------------------------------
+
+
+\input{contents_en-US.tex}      % required for keywords translation
+\input{contents_fr-FR.tex}      % required for keywords translation
+\input{contents_pt-BR.tex}      % required for keywords translation
+
+
+\newcommand{\columnsize}{0.75}
+
+\newcommand{\contactinfo}{
+    % e-mail
+    \noindent
+    \includegraphics[
+        width=\iconscale\baselineskip,
+        height=\iconscale\baselineskip
+        ]{
+            images/icons/email-240.png
+        } \link{mailto:guitrofino@gmail.com}{guitrofino@gmail.com}
+    % GitHub
+    \quad
+    \includegraphics[
+        width=\iconscale\baselineskip,
+        height=\iconscale\baselineskip
+        ]{
+            images/icons/github-240.png
+        } \link{https://github.com/tr0fin0}{tr0fin0}
+    % LinkedIn
+    \quad
+    \includegraphics[
+        width=\iconscale\baselineskip,
+        height=\iconscale\baselineskip
+        ]{
+            images/icons/linkedin-240.png
+        } \link{https://www.linkedin.com/in/guilherme-trofino/}{guilherme-trofino}
+    % phone
+    \quad
+    \includegraphics[
+        width=\iconscale\baselineskip,
+        height=\iconscale\baselineskip
+        ]{
+            images/icons/phone-240.png
+        } +55 19 99925-0260
+}
+
+\newcommand{\division}{
+    \vspace{0mm}\noindent\rule{\linewidth}{0.1mm}\vspace{0mm}
+}
+
+\newcommand{\iconscale}{0.6125}
+
+\newcommand{\presentation}{
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\linewidth]{images/profile.jpg}
+    \end{figure}
+    \noindent\textcolor{color_text}{\GetTranslation{presentation}}
+    \vspace{5mm}
+}
+
+\newcommand{\topics}{
+    % requires 'iflang'
+    \IfLanguageName{english}{Topics}{
+        \IfLanguageName{french}{Sujets}{
+            \IfLanguageName{portuguese}{Tópicos}{
+                not defined
+            }
+        }
+    }
+}
+
+\newcommand{\version}{
+    % requires 'iflang'
+    \IfLanguageName{english}{[EN VERSION]}{
+        \IfLanguageName{french}{[FR VERSION]}{
+            \IfLanguageName{portuguese}{[PT-BR VERSION]}{
+                not defined
+            }
+        }
+    }
+}
+
+
+
+% ----------------------------------------------
+%               Commands with Arguments
+% ----------------------------------------------
+
+% '%' are required in the end of the line
+\newcommand{\addunderline}[1]{%
+    % require 'contour'
+    \uline{\phantom{#1}}%
+    \llap{\contour{white}{#1}}%
+}
+
+\newcommand{\block}[6]{
+    \subsection*{#1}
+    \noindent\textcolor{color_highlight}{\large\textbf{#2}}
+
+    \noindent\includegraphics[
+        width=\iconscale\baselineskip,
+        height=\iconscale\baselineskip
+    ]{
+        images/icons/calendar-240.png
+    } \textcolor{color_text}{#4}
+    \hfill\includegraphics[
+        width=\iconscale\baselineskip,
+        height=\iconscale\baselineskip
+    ]{
+        images/icons/location-240.png
+    } \textcolor{color_text}{#3}
+
+    \if#5\empty
+        % do nothing
+    \else
+        \vspace{2mm}
+        \begin{indented}
+            \item[]\color{color_text}#5
+        \end{indented}
+    \fi
+
+    \if#6\empty
+        % do nothing
+    \else
+        \vspace{2mm}
+        \highlight{\topics}{#6}
+    \fi
+}
+
+\newcommand{\colorbar}[2]{
+    % require 'tikz'
+    \begin{tikzpicture}[baseline]
+        \fill[color=color_highlight] (0,0) rectangle ({#2/100*\linewidth}, #1mm);
+        \draw[thick, color=color_text] (0,0) rectangle (\linewidth, #1mm);
+    \end{tikzpicture}
+    \vspace{-1mm}\\
+}
+
+\newcommand{\experiences}[1]{
+    \block{
+        \getIfTranslationExists{title-#1}
+    }{
+        \getIfTranslationExists{presentation-#1}
+    }{
+        \getIfTranslationExists{location-#1}
+    }{
+        \getIfTranslationExists{duration-#1}
+    }{
+        \getIfTranslationExists{description-#1}
+    }{
+        \getIfTranslationExists{tags-#1}
+    }
+}
+
+\newcommand{\getIfTranslationExists}[1]{%
+    \IfTranslation{\languagename}{#1}{\GetTranslation{#1}}{}%
+}
+
+\newcommand{\highlight}[2]{
+    \noindent\textbf{#1}: \textcolor{color_text}{#2}
+}
+
+\newcommand{\languageLevel}[1]{
+    \highlight{
+        \getIfTranslationExists{name-#1}
+    }{
+        \hfill
+        \getIfTranslationExists{level-#1}
+        \link{https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions}{\textbf{\getIfTranslationExists{cefr-#1}}}
+    }
+    \colorbar{
+        1
+    }{
+        \getIfTranslationExists{hbar-#1}
+    }
+}
+
+\newcommand{\link}[2]{
+    \noindent\href{#1}{\addunderline{#2}}
+}
+
+\newcommand{\skills}[1]{
+    \highlight{
+        \getIfTranslationExists{section-skills-#1}
+    }{
+        \getIfTranslationExists{skills-#1}
+    }\\
+}
+
+% from https://github.com/liantze/AltaCV/blob/main/altacv.cls
+\newcommand{\tag}[1]{%
+    \tikz[baseline]\node[
+        anchor=base,
+        draw=color_text!25,
+        rounded corners,
+        inner xsep=0.5ex,
+        inner ysep=0.5ex,
+        text height=1.25ex,
+        text depth=0.0ex
+    ]{
+        #1
+    };
+}
