@@ -92,13 +92,13 @@ module.exports = {
       {
         assets: [
           {
-            path: '*.{sty,tex}',
+            path: 'src/**/*.{tex,sty}',
             name: 'TeX-${nextRelease.gitTag}',
             label:
               'TeX source files required for compiling the PDF file on ${nextRelease.gitTag}.'
           },
           {
-            path: '*.pdf',
+            path: 'src/main.pdf',
             name: 'PDF-${nextRelease.gitTag}',
             label: 'Curriculum Vitae compiled PDF file on ${nextRelease.gitTag}'
           }
