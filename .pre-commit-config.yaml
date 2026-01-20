@@ -17,7 +17,14 @@ repos:
   - id: codespell
     name: Spell Check for en-US
     args: ["--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
-    exclude: '*.cjs|*.json|*.txt|src/contents_fr-FR.tex|src/contents_pt-BR.tex'
+    exclude: |
+      (?x)^(
+          *.cjs|
+          *.json|
+          *.txt|
+          src/contents_fr-FR.tex|
+          src/contents_pt-BR.tex
+      )$
 
   - id: codespell
     name: Spell Check for fr-FR
