@@ -92,15 +92,22 @@ module.exports = {
       {
         assets: [
           {
-            path: 'src/**/*.{tex,sty}',
-            name: 'TeX-${nextRelease.gitTag}',
+            path: 'src/cv-english.pdf',
+            name: 'cv-enUS-${nextRelease.gitTag}',
             label:
-              'TeX source files required for compiling the PDF file on ${nextRelease.gitTag}.'
+              'Curriculum Vitae PDF file for en-US on ${nextRelease.gitTag}.'
           },
           {
-            path: 'src/main.pdf',
-            name: 'PDF-${nextRelease.gitTag}',
-            label: 'Curriculum Vitae compiled PDF file on ${nextRelease.gitTag}'
+            path: 'src/cv-french.pdf',
+            name: 'cv-frFR-${nextRelease.gitTag}',
+            label:
+              'Curriculum Vitae PDF file for fr-FR on ${nextRelease.gitTag}.'
+          },
+          {
+            path: 'src/cv-portuguese.pdf',
+            name: 'cv-ptBR-${nextRelease.gitTag}',
+            label:
+              'Curriculum Vitae PDF file for pt-BR on ${nextRelease.gitTag}.'
           }
         ],
         failComment: false,

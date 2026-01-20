@@ -9,8 +9,39 @@ permissions:
 
 
 jobs:
+  artifacts:
+    name: Create Artifacts
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        language: ['english', 'french', 'portuguese']
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+
+      - name: Compile LaTeX for ${{ matrix.language }}
+        uses: xu-cheng/latex-action@25080975331dc4fc8e6f1af55788e00f84f51fff #v4.0.0
+        with:
+          pre_compile: |
+            sed -i 's/\\selectlanguage{.*}/\\selectlanguage{${{matrix.language}}}/' main.tex
+          root_file: 'main.tex'
+          working_directory: 'src/'
+          post_compile: |
+            mv main.pdf cv-${{matrix.language}}.pdf
+
+      - name: Upload ${{ matrix.language }} CV as PDF file
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f #v6.0.0
+        with:
+          name: cv-${{ matrix.language }}
+          path: 'src/cv-${{matrix.language}}.pdf'
+
+
   releaser:
     name: Create Release
+    needs:
+      - artifacts
     permissions:
       contents: write
       issues: write
@@ -20,6 +51,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
 
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v5
+        with:
+          path: src/
+          pattern: cv-*
+          merge-multiple: true
 
       - name: Setup Node.js
         uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 #v6.2.0
