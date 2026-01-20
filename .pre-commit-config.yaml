@@ -22,18 +22,18 @@ repos:
           .*\.cjs|
           .*\.json|
           .*\.txt|
-          src/contents_fr-FR\.tex|
-          src/contents_pt-BR\.tex
+          src/contents_french\.tex|
+          src/contents_portuguese\.tex
       )$
 
   - id: codespell
     name: Spell Check for fr-FR
-    files: 'src/contents_fr-FR.tex'
+    files: 'src/contents_french.tex'
     args: ["-D", "docs/translation/fr-FR/vocabulary/dictionary.txt", "--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
 
   - id: codespell
     name: Spell Check for pt-BR
-    files: 'src/contents_pt-BR.tex'
+    files: 'src/contents_portuguese.tex'
     args: ["-D", "docs/translation/pt-BR/vocabulary/dictionary.txt", "--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
 
 
