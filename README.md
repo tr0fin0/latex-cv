@@ -2,7 +2,7 @@
 
 # Introduction <a name="introduction"></a>
 
-This minimalist LaTeX CV template provide multi-language support by verifying common missspells from accepted words and dictionaries defined by language in the `doc/translation/` folder.
+This minimalist LaTeX CV template provide multi-language support by verifying common misspells from accepted words and dictionaries defined by language in the `doc/translation/` folder.
 
 <details open>
 
@@ -116,7 +116,7 @@ By default, a <span style="color:#303030">**black-ish**</span> color is used.
 
 ### Contact Information
 
-Each contact information is preceded by an appropriate icon to visually identify each link. For e-mail and phone number is recommended to leave the full address as the visual link to avoid missunderstandings.
+Each contact information is preceded by an appropriate icon to visually identify each link. For e-mail and phone number is recommended to leave the full address as the visual link to avoid misunderstandings.
 
 ```latex
 % tpack.sty
@@ -183,7 +183,7 @@ The `\experience` command uses the indented environment for it's description.
 
 #### File Margins
 
-The bottom, left, right and top margins are equally set to 10 milimeter.
+The bottom, left, right and top margins are equally set to 10 millimeter.
 
 ```latex
 % tpack.sty
@@ -243,7 +243,7 @@ In each supported idioms the following translations **should** be declared as su
 > [!NOTE]
 > If no translation is declared for a given key, the key provided will be used as translation.
 
-#### Recomendations
+#### Recommendations
 
 <details close> <summary>Site</summary>
 
@@ -253,7 +253,7 @@ It is recommended to include the organisation main site, preferably in a present
 % contents_english.tex
 
 \DeclareTranslation{english}{ansys-site}{
-    \link{https://www.ansys.com/}{Ansys}, \link{https://www.synopsys.com/}{Synopsys}
+    \link{https://www.ansys.com/}{Ansys}, \link{https://www.synopsis.com/}{Synopsis}
 }
 ```
 
@@ -402,7 +402,7 @@ The level is used to describle in one word the level of proficiency in the langu
 \DeclareTranslation{french}{english-level}{Fluent}
 ```
 
-Possible descriptions: Basic, Intermidiate, Fluent, and Native.
+Possible descriptions: Basic, Intermediate, Fluent, and Native.
 
 </details>
 
@@ -604,7 +604,7 @@ flowchart LR
     E ==> F[create Pull Request]:::remote
     F ==> G{validate<br>Pull Request}:::remote
     G -->|workflows fail| C
-    G ==>|workflows pass| H([marge Pull Request]):::remote
+    G ==>|workflows pass| H([merge Pull Request]):::remote
 ```
 
 With local side operations in <span style="color:#99ff99">**green**</span> and remote side operations in <span style="color:#9999ff">**blue**</span>.
@@ -620,7 +620,7 @@ Each branch name **should** respect the following naming structure:
 With the same accepted types as those for the [Commit Messages](#commit-messages) and the description words separated by `-`.
 
 > [!TIP]
-> Labels are automatically added by the `cicd.yml` workflow if this convetion is followed.
+> Labels are automatically added by the `cicd.yml` workflow if this convention is followed.
 
 ### Commit Messages
 
