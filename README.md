@@ -691,13 +691,12 @@ Each modification **must** be described on an Issue using either a [Bug](.github
 Each working branch should be linked to a single Pull Request where it's title **must** respect the [Commit Messages](#commit-messages) structure. When merging, the squash approach is used and the title will be used as default commit message.
 
 > [!WARNING]
-> A Pull Request will be accepted if, and only if, the naming structure is respected and pass the `cicd.yml` workflow.
+> A Pull Request will be accepted if, and only if, the naming structure is respected and pass the [`cicd.yml`](.github/workflows/cicd.yml) workflow.
 >
 > If disrespected, [semantic-release](https://github.com/semantic-release/semantic-release) will disconsider the Pull Request and incorrectly determine the next release version.
 
 
 ## Workflows
-
 
 [`act`](https://nektosact.com/installation/index.html) is used to locally run GitHub Workflows which requires [Docker Engine](https://docs.docker.com/engine/install/) to create an environment suitable for the workflow execution. a workflow may be run with the following:
 
@@ -710,25 +709,24 @@ When running for the first time, it should pull an ubuntu image which could take
 > [!TIP]
 > Run workflows locally before push changes to remote.
 
-### `cicd`
+### [`cicd`](.github/workflows/cicd.yml)
 
-what it does in a diagram
+This workflow verifies whenever a pull request is altered if it's name respects the [Commit Messages](#commit-messages) structure and adds labels based on the it's contents and name.
 
-what triggers
+### [`latex`](.github/workflows/latex.yml)
 
-### `latex`
+This workflow verifies whenever a `.tex`, or `.sty`, file is modified if it's compilation process is successful or not for each and ever translation available and uploads the results to the artifacts.
 
-### `release`
+### [`release`](.github/workflows/release.yml)
 
-[semantic-release](https://github.com/semantic-release/semantic-release) and [semantic-release/github](https://github.com/semantic-release/github) plugin are used for [release](#releases) creation:
+This workflow analyzes and create a new release if suitable with use of [semantic-release](https://github.com/semantic-release/semantic-release). It's possible to locally evaluate the behavior with the following:
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 npm install
-```
-
 npx dotenv-cli -e .env -- npx semantic-release --dry-run
+```
 
 
 
