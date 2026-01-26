@@ -25,7 +25,6 @@ This minimalist LaTeX CV template provide multi-language support by verifying co
     1. [Curriculum Idioms](#curriculum-idioms)
         1. [Idiom Addition](#idiom-addition)
         1. [Idiom Selection](#idiom-selection)
-        1. [Idiom Ignore Word](#idiom-ignore-word)
     1. [Development Strategy](#development-strategy)
         1. [Branch Naming](#branch-naming)
         1. [Commit Messages](#commit-messages)
@@ -468,14 +467,65 @@ The `\tag[1]<word>` command creates box around a word to visually highlight it.
 
 ### Idiom Addition
 
+When adding an idiom there are a series of dependencies modifications required to ensure adequate functionality of the LaTeX commands and GitHub workflows.
+
+Before proceding, create a `src/contents_<idiom>.tex` file with all the required curriculum translations keys.
+
+#### Idiom Spellcheck Configuration
+
+[pre-commit](https://github.com/pre-commit/pre-commit)'s [codespell](https://github.com/codespell-project/codespell) hook is used to verify word misspellings defined on dictionary files. In this approach only common misspellings are verified to improve efficiency by avoiding overuse of server time during CICD checks.
+
+Each language has it's own dictionary saved on a `.txt` file in the [`docs/translation/`](docs/translation/) folder with exception of the English language that uses the already rich defined vocabulary from [codespell](https://github.com/codespell-project/codespell) hook.
+
+When adding an idiom dictionary, the [Wikipedia's Common Misspellings For Machines](https://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings/For_machines) is a good starting point as some machine readable dictionaries with the same structure used in the [codespell](https://github.com/codespell-project/codespell) hook are already defined. If only RegEx are provided, is possible to use [exrex](https://github.com/asciimoo/exrex) to create all possible matching word variants with Python.
+
+After creating an idiom dictionary, it's necessary to include the dictionary verification in the [`.pre-commit-config.yaml`](.pre-commit-config.yaml) file as presented below:
+
+```yaml
+- repo: https://github.com/codespell-project/codespell
+  rev: v2.4.1
+  hooks:
+    - id: codespell
+      name: Spell Check for en-US
+      args:
+        ["--ignore-words", "docs/translation/en-US/vocabulary/accept.txt", "-w"]
+      exclude: |
+        (?x)^(
+            .*\.cjs|
+            .*\.json|
+            .*\.txt|
+            src/contents_<idiom>\.tex|
+            src/contents_french\.tex|
+            src/contents_portuguese\.tex
+        )$
+
+    - id: codespell
+      name: Spell Check for <idiom>
+      files: "src/contents_<idiom>.tex"
+      args:
+        [
+          "-D",
+          "docs/translation/<idiom>/vocabulary/dictionary.txt",
+          "--ignore-words",
+          "docs/translation/en-US/vocabulary/accept.txt",
+          "-w",
+        ]
+```
+
+> [!WARNING]
+> It's necessary to configure the idiom specific check to only run in the idiom specific contents file **and** to exclude the idiom specific contents file from the english check to avoid incorrect corrections.
+
+Then, include the `src/contents_<idiom>.tex` file the [tpack.sty](src/tpack.sty) so the translations may be found during curriculum compilation **and** update the `\topics` and `\version` commands with the localized strings:
 
 ```latex
+% tpack.tex
+
 % ----------------------------------------------
 %               Commands without Arguments
 % ----------------------------------------------
 
 
-\input{contents_english.tex}        % required for keywords translation
+\input{contents_<idiom>.tex}        % required for keywords translation
 
 
 \newcommand{\topics}{
@@ -483,7 +533,9 @@ The `\tag[1]<word>` command creates box around a word to visually highlight it.
     \IfLanguageName{english}{Topics}{
         \IfLanguageName{french}{Sujets}{
             \IfLanguageName{portuguese}{Tópicos}{
-                not defined
+                \IfLanguageName{<idiom>}{<value>}{
+                    not defined
+                }
             }
         }
     }
@@ -494,47 +546,37 @@ The `\tag[1]<word>` command creates box around a word to visually highlight it.
     \IfLanguageName{english}{[EN VERSION]}{
         \IfLanguageName{french}{[FR VERSION]}{
             \IfLanguageName{portuguese}{[PT-BR VERSION]}{
-                not defined
+                \IfLanguageName{<idiom>}{[<value>]}{
+                    not defined
+                }
             }
         }
     }
 }
 ```
 
+Finally, include the new idiom in the [`.github/workflows/release.yml`](.github/workflows/release.yml) matrix:
 
-verify wikipedia
+```yml
+# release.yml
 
-#### Idiom Dictionary
+...
 
-if available create machine readable dictionary
-
-include exclusion on the release.config and configure the language with codespell
-
-[exrex](https://github.com/asciimoo/exrex)
-
-[Common Misspellings in English](https://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings/For_machines)
-
-[Common Misspellings in Português](https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:Lista_de_erros_comuns/M%C3%A1quinas)
-
-[Common Misspellings in French](https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Liste_de_fautes_d%27orthographe_courantes)
-
-TODO restore files on github / recovery on wikipedia
-
-#### Idiom Spellcheck Configuration
-
-
+jobs:
+  artifacts:
+        ...
+        language: ['english', 'french', 'portuguese', '<idiom>']
+```
 
 ### Idiom Selection
 
+In the [`src/main.tex`](src/main.tex) the curriculum language may be selected:
+
 ```latex
-\selectlanguage{}
+% main.tex
+
+\selectlanguage{<idiom>}
 ```
-
-english, french and portuguese currently supported
-
-### Idiom Ignore Word
-
-
 
 ## Development Strategy
 
