@@ -611,7 +611,7 @@ With local side operations in <span style="color:#99ff99">**green**</span> and r
 
 ### Branch Naming
 
-Each branch name  **should** respect the following naming structure:
+Each branch name **should** respect the following naming structure:
 
 ```
 <type>/<description>
@@ -621,7 +621,6 @@ With the same accepted types as those for the [Commit Messages](#commit-messages
 
 > [!TIP]
 > Labels are automatically added by the `cicd.yml` workflow if this convetion is followed.
-
 
 ### Commit Messages
 
@@ -740,4 +739,4 @@ npx dotenv-cli -e .env -- npx semantic-release --dry-run
 
 # License
 
-license mention
+[latex-cv](https://github.com/tr0fin0/latex-cv) is licensed under the GPL-3.0 license. The full license can be found in the root directory of the repository, see [LICENSE](LICENSE).
