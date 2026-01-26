@@ -253,7 +253,7 @@ It is recommended to include the organisation main site, preferably in a present
 % contents_english.tex
 
 \DeclareTranslation{english}{ansys-site}{
-    \link{https://www.ansys.com/}{Ansys}, \link{https://www.synopsis.com/}{Synopsis}
+    \link{https://www.ansys.com/}{Ansys}, \link{https://www.synopsys.com/}{Synopsys} % codespell:ignore
 }
 ```
 
@@ -469,7 +469,7 @@ The `\tag[1]<word>` command creates box around a word to visually highlight it.
 
 When adding an idiom there are a series of dependencies modifications required to ensure adequate functionality of the LaTeX commands and GitHub workflows.
 
-Before proceding, create a `src/contents_<idiom>.tex` file with all the required curriculum translations keys.
+Before proceeding, create a `src/contents_<idiom>.tex` file with all the required curriculum translations keys.
 
 #### Idiom Spellcheck Configuration
 
