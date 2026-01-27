@@ -43,10 +43,10 @@
 % ----------------------------------------------
 
 % https://htmlcolorcodes.com/fr/
-\definecolor{color_link}{rgb}{1.0, 0.75, 0.0}
-\definecolor{color_highlight}{HTML}{873600}
-\definecolor{color_text}{HTML}{505050}
-\definecolor{color_title}{HTML}{303030}
+\definecolor{color_highlight}{HTML}{873600} % default: #873600
+\definecolor{color_link}{HTML}{DD8008}      % default: #DD8008
+\definecolor{color_text}{HTML}{505050}      % default: #505050
+\definecolor{color_title}{HTML}{303030}     % default: #303030
 
 
 
@@ -54,9 +54,9 @@
 %               Customization: Geometry
 % ----------------------------------------------
 
-\geometry{margin=10mm}
+\geometry{margin=10mm}          % default: 10mm
 
-\setlength{\columnsep}{10mm}
+\setlength{\columnsep}{10mm}    % default: 10mm
 
 \pagenumbering{gobble}
 
@@ -80,34 +80,28 @@
 % ----------------------------------------------
 
 \titleformat
-    {\section}              % Part
-    [block]                 % Part Shape
-    {\color{color_highlight}\normalfont\bf\huge}  % Font Size
-    {\thesection. }         % Label Numbering
-    {0mm}                   % Part Separation
-    {}                      % Code Before
+    {\section}                                      % Part
+    [block]                                         % Part Shape
+    {\color{color_highlight}\normalfont\bf\huge}    % Font Size
+    {\thesection. }                                 % Label Numbering
+    {0mm}                                           % Part Separation
+    {}                                              % Code Before
     [{\color{color_highlight}\titlerule[0.75mm]}]   % Code After
 
 \titleformat
-    {\subsection}           % Part
-    [block]                 % Part Shape
-    {\normalfont\large}     % Font Size
-    {\thesection.\thesubsection } % Label Numbering
-    {0mm}                   % Part Separation
-    {}                      % Code Before
-    []                      % Code After
+    {\subsection}                                   % Part
+    [block]                                         % Part Shape
+    {\normalfont\large}                             % Font Size
+    {\thesection.\thesubsection }                   % Label Numbering
+    {0mm}                                           % Part Separation
+    {}                                              % Code Before
+    []                                              % Code After
 
-\titlespacing*{\section}{0.0mm}{5.0mm}{2.5mm}
-\titlespacing*{\subsection}{0.0mm}{5.0mm}{0.0mm}
+% https://www.ctan.org/pkg/titlesec
+% \titlespacing*{<command>}{<left-space>}{<before-separation>}{<after-separation>}
 
-
-
-
-
-
-% ----------------------------------------------
-%               Globals
-% ----------------------------------------------
+\titlespacing*{\section}{0.0mm}{5.0mm}{2.5mm}       % default: {0.0mm}{5.0mm}{2.5mm}
+\titlespacing*{\subsection}{0.0mm}{5.0mm}{0.0mm}    % default: {0.0mm}{5.0mm}{0.0mm}
 
 
 
@@ -115,13 +109,14 @@
 %               Environments
 % ----------------------------------------------
 
+% private
 \newenvironment{indented}{
     \begin{list}{}{
-        \setlength{\leftmargin}{3mm}
-        \setlength{\parsep}{0mm}
-        \setlength{\parskip}{0mm}
-        \setlength{\itemsep}{0mm}
-        \setlength{\topsep}{0mm}
+        \setlength{\leftmargin}{3mm}    % default: 3mm
+        \setlength{\parsep}{0mm}        % default: 0mm
+        \setlength{\parskip}{0mm}       % default: 0mm
+        \setlength{\itemsep}{0mm}       % default: 0mm
+        \setlength{\topsep}{0mm}        % default: 0mm
     }}{\end{list}}
 
 
@@ -134,7 +129,7 @@
     \noindent{\Huge\textbf{\color{color_title}\@author}}\hfill\version
 
     \vspace{0.5mm}
-    \contactinfo
+    \contactinfo\hfill\today
 }
 
 \renewcommand{\ULdepth}{1.8pt}  % require 'ulem'. distance from underline to text
@@ -146,12 +141,12 @@
 % ----------------------------------------------
 
 
-\input{contents_english.tex}        % required for keywords translation
-\input{contents_french.tex}         % required for keywords translation
-\input{contents_portuguese.tex}     % required for keywords translation
+\input{contents_english.tex}    % required for keywords translation
+\input{contents_french.tex}     % required for keywords translation
+\input{contents_portuguese.tex} % required for keywords translation
 
 
-\newcommand{\columnsize}{0.75}
+\newcommand{\columnsize}{0.75}  % default: 0.75
 
 \newcommand{\contactinfo}{
     % e-mail
@@ -189,19 +184,10 @@
 }
 
 \newcommand{\division}{
-    \vspace{0mm}\noindent\rule{\linewidth}{0.1mm}\vspace{0mm}
+    \vspace{0mm}\noindent\textcolor{color_text}{\rule{\linewidth}{0.1mm}}\vspace{0mm}\\
 }
 
 \newcommand{\iconscale}{0.6125}
-
-\newcommand{\presentation}{
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=\linewidth]{images/profile.jpg}
-    \end{figure}
-    \noindent\textcolor{color_text}{\GetTranslation{presentation}}
-    \vspace{5mm}
-}
 
 \newcommand{\topics}{
     % requires 'iflang'
@@ -281,19 +267,19 @@
     \vspace{-1mm}\\
 }
 
-\newcommand{\experiences}[1]{
+\newcommand{\experience}[1]{
     \block{
-        \getIfTranslationExists{title-#1}
+        \getIfTranslationExists{#1-title}
     }{
-        \getIfTranslationExists{presentation-#1}
+        \getIfTranslationExists{#1-site}
     }{
-        \getIfTranslationExists{location-#1}
+        \getIfTranslationExists{#1-location}
     }{
-        \getIfTranslationExists{duration-#1}
+        \getIfTranslationExists{#1-duration}
     }{
-        \getIfTranslationExists{description-#1}
+        \getIfTranslationExists{#1-description}
     }{
-        \getIfTranslationExists{tags-#1}
+        \getIfTranslationExists{#1-tags}
     }
 }
 
@@ -305,18 +291,18 @@
     \noindent\textbf{#1}: \textcolor{color_text}{#2}
 }
 
-\newcommand{\languageLevel}[1]{
+\newcommand{\idiom}[1]{
     \highlight{
-        \getIfTranslationExists{name-#1}
+        \getIfTranslationExists{#1-name}
     }{
         \hfill
-        \getIfTranslationExists{level-#1}
-        \link{https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions}{\textbf{\getIfTranslationExists{cefr-#1}}}
+        \getIfTranslationExists{#1-level}
+        \link{https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions}{\textbf{\getIfTranslationExists{#1-cefr}}}
     }
     \colorbar{
         1
     }{
-        \getIfTranslationExists{hbar-#1}
+        \getIfTranslationExists{#1-hbar}
     }
 }
 
@@ -324,7 +310,21 @@
     \noindent\href{#1}{\addunderline{#2}}
 }
 
-\newcommand{\skills}[1]{
+\newcommand{\presentation}[1]{
+    \if#1\empty
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\linewidth]{images/profile.jpg}
+        \end{figure}
+    \else
+        % nothing
+    \fi
+    \section*{\GetTranslation{about-me}}
+    \noindent\textcolor{color_text}{\GetTranslation{presentation}}
+    \vspace{5mm}
+}
+
+\newcommand{\skill}[1]{
     \highlight{
         \getIfTranslationExists{section-skills-#1}
     }{
