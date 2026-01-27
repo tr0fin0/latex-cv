@@ -555,7 +555,7 @@ Then, include the `src/contents_<idiom>.tex` file the [tpack.sty](src/tpack.sty)
 }
 ```
 
-Finally, include the new idiom in the [`.github/workflows/release.yml`](.github/workflows/release.yml) matrix:
+Finally, include the new idiom in the [`.github/workflows/release.yml`](.github/workflows/release.yml) and in the [`.github/workflows/latex.yml`](.github/workflows/latex.yml) matrix:
 
 ```yml
 # release.yml
