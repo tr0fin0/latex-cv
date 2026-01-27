@@ -129,7 +129,7 @@
     \noindent{\Huge\textbf{\color{color_title}\@author}}\hfill\version
 
     \vspace{0.5mm}
-    \contactinfo
+    \contactinfo\hfill\today
 }
 
 \renewcommand{\ULdepth}{1.8pt}  % require 'ulem'. distance from underline to text
@@ -184,19 +184,10 @@
 }
 
 \newcommand{\division}{
-    \vspace{0mm}\noindent\rule{\linewidth}{0.1mm}\vspace{0mm}
+    \vspace{0mm}\noindent\textcolor{color_text}{\rule{\linewidth}{0.1mm}}\vspace{0mm}\\
 }
 
 \newcommand{\iconscale}{0.6125}
-
-\newcommand{\presentation}{
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=\linewidth]{images/profile.jpg}
-    \end{figure}
-    \noindent\textcolor{color_text}{\GetTranslation{presentation}}
-    \vspace{5mm}
-}
 
 \newcommand{\topics}{
     % requires 'iflang'
@@ -317,6 +308,20 @@
 
 \newcommand{\link}[2]{
     \noindent\href{#1}{\addunderline{#2}}
+}
+
+\newcommand{\presentation}[1]{
+    \if#1\empty
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=\linewidth]{images/profile.jpg}
+        \end{figure}
+    \else
+        % nothing
+    \fi
+    \section*{\GetTranslation{about-me}}
+    \noindent\textcolor{color_text}{\GetTranslation{presentation}}
+    \vspace{5mm}
 }
 
 \newcommand{\skill}[1]{
