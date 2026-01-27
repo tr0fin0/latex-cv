@@ -43,10 +43,10 @@
 % ----------------------------------------------
 
 % https://htmlcolorcodes.com/fr/
-\definecolor{color_link}{rgb}{1.0, 0.75, 0.0}
-\definecolor{color_highlight}{HTML}{873600}
-\definecolor{color_text}{HTML}{505050}
-\definecolor{color_title}{HTML}{303030}
+\definecolor{color_highlight}{HTML}{873600} % default: #873600
+\definecolor{color_link}{HTML}{DD8008}      % default: #DD8008
+\definecolor{color_text}{HTML}{505050}      % default: #505050
+\definecolor{color_title}{HTML}{303030}     % default: #303030
 
 
 
@@ -54,9 +54,9 @@
 %               Customization: Geometry
 % ----------------------------------------------
 
-\geometry{margin=10mm}
+\geometry{margin=10mm}          % default: 10mm
 
-\setlength{\columnsep}{10mm}
+\setlength{\columnsep}{10mm}    % default: 10mm
 
 \pagenumbering{gobble}
 
@@ -80,34 +80,28 @@
 % ----------------------------------------------
 
 \titleformat
-    {\section}              % Part
-    [block]                 % Part Shape
-    {\color{color_highlight}\normalfont\bf\huge}  % Font Size
-    {\thesection. }         % Label Numbering
-    {0mm}                   % Part Separation
-    {}                      % Code Before
+    {\section}                                      % Part
+    [block]                                         % Part Shape
+    {\color{color_highlight}\normalfont\bf\huge}    % Font Size
+    {\thesection. }                                 % Label Numbering
+    {0mm}                                           % Part Separation
+    {}                                              % Code Before
     [{\color{color_highlight}\titlerule[0.75mm]}]   % Code After
 
 \titleformat
-    {\subsection}           % Part
-    [block]                 % Part Shape
-    {\normalfont\large}     % Font Size
-    {\thesection.\thesubsection } % Label Numbering
-    {0mm}                   % Part Separation
-    {}                      % Code Before
-    []                      % Code After
+    {\subsection}                                   % Part
+    [block]                                         % Part Shape
+    {\normalfont\large}                             % Font Size
+    {\thesection.\thesubsection }                   % Label Numbering
+    {0mm}                                           % Part Separation
+    {}                                              % Code Before
+    []                                              % Code After
 
-\titlespacing*{\section}{0.0mm}{5.0mm}{2.5mm}
-\titlespacing*{\subsection}{0.0mm}{5.0mm}{0.0mm}
+% https://www.ctan.org/pkg/titlesec
+% \titlespacing*{<command>}{<left-space>}{<before-separation>}{<after-separation>}
 
-
-
-
-
-
-% ----------------------------------------------
-%               Globals
-% ----------------------------------------------
+\titlespacing*{\section}{0.0mm}{5.0mm}{2.5mm}       % default: {0.0mm}{5.0mm}{2.5mm}
+\titlespacing*{\subsection}{0.0mm}{5.0mm}{0.0mm}    % default: {0.0mm}{5.0mm}{0.0mm}
 
 
 
@@ -115,13 +109,14 @@
 %               Environments
 % ----------------------------------------------
 
+% private
 \newenvironment{indented}{
     \begin{list}{}{
-        \setlength{\leftmargin}{3mm}
-        \setlength{\parsep}{0mm}
-        \setlength{\parskip}{0mm}
-        \setlength{\itemsep}{0mm}
-        \setlength{\topsep}{0mm}
+        \setlength{\leftmargin}{3mm}    % default: 3mm
+        \setlength{\parsep}{0mm}        % default: 0mm
+        \setlength{\parskip}{0mm}       % default: 0mm
+        \setlength{\itemsep}{0mm}       % default: 0mm
+        \setlength{\topsep}{0mm}        % default: 0mm
     }}{\end{list}}
 
 
@@ -146,12 +141,12 @@
 % ----------------------------------------------
 
 
-\input{contents_english.tex}        % required for keywords translation
-\input{contents_french.tex}         % required for keywords translation
-\input{contents_portuguese.tex}     % required for keywords translation
+\input{contents_english.tex}    % required for keywords translation
+\input{contents_french.tex}     % required for keywords translation
+\input{contents_portuguese.tex} % required for keywords translation
 
 
-\newcommand{\columnsize}{0.75}
+\newcommand{\columnsize}{0.75}  % default: 0.75
 
 \newcommand{\contactinfo}{
     % e-mail
