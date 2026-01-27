@@ -283,17 +283,17 @@
 
 \newcommand{\experiences}[1]{
     \block{
-        \getIfTranslationExists{title-#1}
+        \getIfTranslationExists{#1-title}
     }{
-        \getIfTranslationExists{presentation-#1}
+        \getIfTranslationExists{#1-site}
     }{
-        \getIfTranslationExists{location-#1}
+        \getIfTranslationExists{#1-location}
     }{
-        \getIfTranslationExists{duration-#1}
+        \getIfTranslationExists{#1-duration}
     }{
-        \getIfTranslationExists{description-#1}
+        \getIfTranslationExists{#1-description}
     }{
-        \getIfTranslationExists{tags-#1}
+        \getIfTranslationExists{#1-tags}
     }
 }
 
@@ -307,16 +307,16 @@
 
 \newcommand{\languageLevel}[1]{
     \highlight{
-        \getIfTranslationExists{name-#1}
+        \getIfTranslationExists{#1-name}
     }{
         \hfill
-        \getIfTranslationExists{level-#1}
-        \link{https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions}{\textbf{\getIfTranslationExists{cefr-#1}}}
+        \getIfTranslationExists{#1-level}
+        \link{https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions}{\textbf{\getIfTranslationExists{#1-cefr}}}
     }
     \colorbar{
         1
     }{
-        \getIfTranslationExists{hbar-#1}
+        \getIfTranslationExists{#1-hbar}
     }
 }
 
