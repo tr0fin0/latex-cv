@@ -275,7 +275,7 @@ It is recommended to include both city and country of the organisation in the lo
 
 <details close> <summary>Duration</summary>
 
-It is recommended to provide the experience durantion in months, or years, and the beginning and ending dates formatted as numbers for the month and the year as shown.
+It is recommended to provide the experience duration in months, or years, and the beginning and ending dates formatted as numbers for the month and the year as shown.
 
 ```latex
 % contents_english.tex
