@@ -1,5 +1,5 @@
 module.exports = {
-  branches: ['master'],
+  branches: ['main'],
   plugins: [
     '@semantic-release/commit-analyzer',
 
@@ -110,7 +110,7 @@ module.exports = {
               'Curriculum Vitae PDF file on version ${nextRelease.gitTag} for pt-BR.'
           }
         ],
-        failComment: false,
+        failCommentCondition: false,
         labels: ['bug', 'maintenance'],
         releasedLabels: false,
         successComment: false

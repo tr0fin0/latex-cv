@@ -3,7 +3,7 @@ name: LaTeX Build
 
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
     paths:
       - '**.tex'
 
