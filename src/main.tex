@@ -1,12 +1,9 @@
 \documentclass[8pt, a4paper]{extarticle}
 \usepackage{tpack}
 
-\author{GUILHERME NUNES TROFINO}
+\author{Guilherme Nunes Trofino}
 \begin{document}\selectlanguage{english}
-
-\columnratio{\columnsize}
-\maketitle
-\begin{paracol}{2}
+    \maketitle
 
     \section*{\GetTranslation{section-experiences}}
     \experience{ansys}
@@ -15,29 +12,21 @@
     \experience{isir}
     \experience{phoenix}
 
+    \section*{\GetTranslation{section-project}}
+    \experience{dolphin}
+
     \section*{\GetTranslation{section-education}}
     \experience{ensta}
     \experience{unicamp}
 
-
-    \switchcolumn
-
-
-    \presentation
-
     \section*{\GetTranslation{section-languages}}
-    \idiom{english}
-    \idiom{french}
-    \idiom{portuguese}
-    \idiom{spanish}
-
-    \section*{\GetTranslation{section-skills}}
-    \skill{programming}\\
-    \skill{softskills}\\
-    \skill{tools}
-
-    \section*{\GetTranslation{section-voluntary}}
-    \experience{paris2024}
-    \experience{patronos}
-\end{paracol}
+    \begin{paracol}{4}
+        \idiom{english}
+        \switchcolumn
+        \idiom{french}
+        \switchcolumn
+        \idiom{portuguese}
+        \switchcolumn
+        \idiom{spanish}
+    \end{paracol}
 \end{document}
